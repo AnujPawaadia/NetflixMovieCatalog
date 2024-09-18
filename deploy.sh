@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# Step 1: Navigate to the app directory
 cd ~/NetflixMovieCatalog/NetflixMovieCatalog
 
 # Step 2: Set up a Python virtual environment (if not already done)
