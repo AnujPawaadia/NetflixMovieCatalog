@@ -18,5 +18,4 @@ pip install -r requirements.txt
 # Step 5: Restart the Flask app service
 sudo systemctl restart netflix_movie_catalog
 
-# Step 6: Deactivate the virtual environment
-deactivate
+
