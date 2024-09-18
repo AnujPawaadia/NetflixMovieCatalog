@@ -1,3 +1,22 @@
 #!/bin/bash
 
-# TODO your deploy script implementation...
+# Step 1: Navigate to the app directory
+cd ~/NetflixMovieCatalog
+
+# Step 2: Set up a Python virtual environment (if not already done)
+if [ ! -d ".venv" ]; then
+    python3 -m venv .venv
+fi
+
+# Step 3: Activate the virtual environment
+source .venv/bin/activate
+
+# Step 4: Install/update the required Python packages
+pip install --upgrade pip
+pip install -r requirements.txt
+
+# Step 5: Restart the Flask app service
+sudo systemctl restart netflix_movie_catalog
+
+# Step 6: Deactivate the virtual environment
+deactivate
