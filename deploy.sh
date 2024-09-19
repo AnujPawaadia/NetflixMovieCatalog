@@ -1,19 +1,19 @@
-sudo apt update
+#!/bin/bash
 
-cd ./NetflixMovieCatalog
+# Step 1: Navigate to the app directory
+cd ~/NetflixMovieCatalog/NetflixMovieCatalog
 
+# Step 2: Set up a Python virtual environment (if not already done)
+if [ ! -d ".venv" ]; then
+    python3 -m venv .venv
+fi
+
+# Step 3: Activate the virtual environment
 source .venv/bin/activate
 
-cd ..
+# Step 4: Install/update the required Python packages
+pip install --upgrade pip
+pip install -r requirements.txt
 
-sudo systemctl stop simplepy.service
-
-sudo systemctl enable simplepy.service
-
-sudo systemctl start simplepy.service
-
-sudo apt update
-
-sudo systemctl restart nginx
-
-sudo apt update
+# Step 5: Restart the Flask app service
+sudo systemctl restart netflix_movie_catalog
