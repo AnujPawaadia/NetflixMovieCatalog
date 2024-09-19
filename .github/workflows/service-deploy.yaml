@@ -17,6 +17,10 @@ jobs:
       - name: Checkout the app code
         uses: actions/checkout@v2
 
+      - name: Set permissions on key file
+        run: chmod 400 /home/anujpawadia/Documents/server/Anuj's server.pem
+
+
       - name: SSH to EC2 instance
         run: |
           echo "$SSH_PRIVATE_KEY" > mykey.pem
