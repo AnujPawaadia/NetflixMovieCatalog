@@ -1,6 +1,8 @@
 #!/bin/bash
 
 # Step 1: Navigate to the app directory
+chmod 400 mykey.pem
+
 cd ~/NetflixMovieCatalog/NetflixMovieCatalog
 
 # Step 2: Set up a Python virtual environment (if not already done)
