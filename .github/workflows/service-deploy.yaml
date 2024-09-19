@@ -17,24 +17,19 @@ jobs:
       - name: Checkout the app code
         uses: actions/checkout@v2
 
-      - name: Set permissions on key file
-        run: chmod 400 "/home/anujpawadia/Documents/server/Anuj's server.pem"
-
-
-
       - name: SSH to EC2 instance
         run: |
           echo "$SSH_PRIVATE_KEY" > mykey.pem
-          chmod 400 mykey.pem
+          chmod 400 "Anuj's server.pem"
 
       - name: SCP the app code to EC2
         run: |
-          scp -o StrictHostKeyChecking=no -i mykey.pem -r * ubuntu@$EC2_PUBLIC_IP:~/NetflixMovieCatalog/NetflixMovieCatalog
+          scp -o StrictHostKeyChecking=no -i "Anuj's server.pem" -r * ubuntu@$EC2_PUBLIC_IP:~/NetflixMovieCatalog/NetflixMovieCatalog
 
 
       - name: Deploy app on EC2
         run: |
-          ssh -o StrictHostKeyChecking=no -i mykey.pem ubuntu@$EC2_PUBLIC_IP "bash ~/NetflixMovieCatalog/NetflixMovieCatalog/deploy.sh"
+          ssh -o StrictHostKeyChecking=no -i "Anuj's server.pem" ubuntu@$EC2_PUBLIC_IP "bash ~/NetflixMovieCatalog/NetflixMovieCatalog/deploy.sh"
           
           # Copy the files from the current work dir into the EC2 instance, under `~/app`.
           # scp -o StrictHostKeyChecking=no -i mykey.pem -r * ubuntu@$EC2_PUBLIC_IP:~/app
