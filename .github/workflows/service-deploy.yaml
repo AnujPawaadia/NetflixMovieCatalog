@@ -18,7 +18,8 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Set permissions on key file
-        run: chmod 400 /home/anujpawadia/Documents/server/Anuj's server.pem
+        run: chmod 400 "/home/anujpawadia/Documents/server/Anuj's server.pem"
+
 
 
       - name: SSH to EC2 instance
